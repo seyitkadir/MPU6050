@@ -8,17 +8,17 @@
 #include "main.h"
 #include "i2c.h"
 
-MPU6050AccelValue_t  Accel;
-MPU6050GyroValue_t	  Gyro;
-extern Result_t result;
-#define MPU6050_ADDR 0xD0
-#define SMPLRT_DIV_REG 0x19
-#define GYRO_CONFIG_REG 0x1B
-#define ACCEL_CONFIG_REG 0x1C
-#define ACCEL_XOUT_H_REG 0x3B
-#define GYRO_XOUT_H_REG 0x43
-#define PWR_MGMT_1_REG 0x6B
-#define WHO_AM_I_REG 0x75
+MPU6050AccelValue_t  		Accel;
+MPU6050GyroValue_t	  		Gyro;
+extern Result_t 			result;
+#define MPU6050_ADDR 		0xD0
+#define SMPLRT_DIV_REG 		0x19
+#define GYRO_CONFIG_REG 	0x1B
+#define ACCEL_CONFIG_REG 	0x1C
+#define ACCEL_XOUT_H_REG 	0x3B
+#define GYRO_XOUT_H_REG 	0x43
+#define PWR_MGMT_1_REG 		0x6B
+#define WHO_AM_I_REG 		0x75
 
 int16_t Accel_X_RAW = 0;
 int16_t Accel_Y_RAW = 0;
