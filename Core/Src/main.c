@@ -111,6 +111,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  /////////////////EXAMPELS Ax and Gx //////////////////////////
 	  MPU6050_Read_Accel();
 	  MPU6050_Read_Gyro();
 	  MPU6050AccelValue_t* AccelometerPtr;
