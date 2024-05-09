@@ -25,6 +25,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "MPU6050.h"
+#include <stdio.h>
+#include <string.h>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -96,6 +99,9 @@ int main(void)
   /* USER CODE BEGIN 2 */
   result = MPU6050Init();
   result = MPU6050SetConf();
+
+  char buf[100];
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -105,12 +111,16 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  if(result == RESULT_OK)
-	  {
-		  MPU6050_Read_Accel();
-		  MPU6050_Read_Gyro();
-	  }
-
+	  MPU6050_Read_Accel();
+	  MPU6050_Read_Gyro();
+	  MPU6050AccelValue_t* AccelometerPtr;
+	  MPU6050GyroValue_t* GyroMeterPtr;
+	  AccelometerPtr = getAccel();
+	  GyroMeterPtr = getGyro();
+	  float Accelometer = AccelometerPtr->Ax;
+	  float Gyro = GyroMeterPtr->Gx;
+	  snprintf(buf, 100, "A: %0.3f G: %0.3f \n", Accelometer, Gyro); // @suppress("Float formatting support")
+	  HAL_UART_Transmit(&huart2, (uint8_t*)buf, strlen(buf), 1000);
   }
   /* USER CODE END 3 */
 }

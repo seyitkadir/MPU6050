@@ -73,4 +73,6 @@ Result_t MPU6050Init(void);
 Result_t MPU6050SetConf(void);
 void MPU6050_Read_Accel(void);
 void MPU6050_Read_Gyro(void);
+MPU6050AccelValue_t* getAccel(void);
+MPU6050GyroValue_t* getGyro(void);
 #endif /* INC_MPU6050_H_ */

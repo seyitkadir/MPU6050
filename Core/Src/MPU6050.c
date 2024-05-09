@@ -93,6 +93,10 @@ void MPU6050_Read_Accel (void)
 	}
 	result = RESULT_ERROR;
 }
+MPU6050AccelValue_t* getAccel(void)
+{
+	return &Accel;
+}
 void MPU6050_Read_Gyro (void)
 {
 	uint8_t Rec_Data[6];
@@ -114,6 +118,11 @@ void MPU6050_Read_Gyro (void)
 		HAL_Delay(100);
 	}
 	result = RESULT_ERROR;
+}
+
+MPU6050GyroValue_t* getGyro(void)
+{
+	return &Gyro;
 }
 
 
